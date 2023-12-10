@@ -1,0 +1,57 @@
+# Committee members here
+
+- name: Yueying Li
+  photo: /assets/img/committee-membs/yli.jpeg
+  website: https://www.linkedin.com/in/%E6%82%A6%E9%A2%96-%E6%9D%8E-144479131/
+  active: true
+  category: committee-member
+  
+- name: Jingjie Li
+  photo: /assets/img/committee-membs/jli.jpg
+  website: https://www.jingjieli.me/
+  active: true
+  category: committee-member
+  
+- name: Sihang Liu
+  photo: /assets/img/committee-membs/sliu.jpg
+  website: https://www.sihangliu.com
+  active: true
+  category: committee-member
+
+- name: Suyash Mahar
+  photo: /assets/img/committee-membs/smahar.jpg
+  website: https://suyashmahar.com/
+  active: true
+  category: committee-member
+
+
+- name: Bhumika Mittal
+  photo: /assets/img/committee-membs/bmittal.jpg
+  website: https://bhumikamittal.in
+  active: true
+  category: committee-member
+
+
+- name: Dmitrii Ustiugov
+  photo: /assets/img/committee-membs/dustiugov.jpg
+  active: true
+  website: https://ustiugov.github.io/
+  category: committee-member
+
+- name: Zixuan Wang
+  photo: /assets/img/committee-membs/zxwang.jpg
+  website: https://thenetadmin.net/
+  active: true
+  category: committee-member
+
+- name: Yi Xu
+  photo: https://cns.ucsd.edu/wp-content/uploads/2020/03/Yi-Xu-e1606863440356.jpg
+  website: 
+  active: true
+  category: committee-member
+
+- name: Jie Zhou
+  photo: /assets/img/committee-membs/jzhou.jpg
+  website: https://www.cs.rochester.edu/u/jzhou41/
+  active: true
+  category: committee-member

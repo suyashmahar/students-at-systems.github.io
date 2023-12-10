@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+
+<link rel="shortcut icon" type="image/x-icon" href="{{ 'assets/img/favicon.ico' | relative_url }}"/>
+<html lang="{{ site.lang | default: "en-US" }}">
+    <head>
+        {% if site.google_analytics %}
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id={{ site.google_analytics }}"></script>
+        <script>
+         window.dataLayer = window.dataLayer || [];
+         function gtag(){dataLayer.push(arguments);}
+         gtag('js', new Date());
+
+         gtag('config', '{{ site.google_analytics }}');
+        </script>
+        {% endif %}
+        <script data-goatcounter="https://paper-series.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        {% seo %}
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+        <link rel="stylesheet" href="{{ "/assets/css/style.css?v=" | append: site.github.build_revision | relative_url }}">
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+
+        {% if site.logo %}
+        <div class="header-div">
+          <div class="header-logo">
+            <a href="{{'/' | relative_url }}">
+              <img src="{{ site.logo | relative_url }}" alt="Logo" />
+            </a>
+          </div>
+
+          {% if site.title-below-logo %}
+          <div class="header-text">
+            {{ site.title }}
+          </div>
+          {% endif %}
+        </div>
+        {% endif %}
+
+
+      </header>
+      
+      <section>
+
+
+      <nav class="nav-bar" id="navbar">
+	<div class="nav-bar-content">
+            {% assign pageUrlWithBase = baseurl | append: page.url | relative_url %}
+            {% assign homeUrl = '/index.html' | relative_url %}
+            {% assign relativeUrl = '/' | relative_url %}
+
+            {% assign navItemClasses = 'nav-item nav-item-hover' %}
+            {% if relativeUrl == pageUrlWithBase %}
+              {% assign navItemClasses = navItemClasses | append: ' nav-item-cur' %}
+            {% endif %}
+
+	    <div class="{{ navItemClasses }}" onclick="window.location='{{ homeUrl }}';">
+              Home
+            </div>
+
+            {% assign sortedNavPages = site.pages | sort:"order" %}
+            {% for navPage in sortedNavPages %}
+            {% if navPage.categories contains "navigation" %}
+            {% assign navPageUrl = '/pages/' | append: navPage.title | downcase | replace: ' ','-' | relative_url | append: '.html' %}
+            {% assign navItemClasses = 'nav-item' %}
+            {% assign onClick = '' %}
+            
+            {% if pageUrlWithBase == navPageUrl %}
+              {% assign navItemClasses = navItemClasses | append: ' nav-item-cur' %}
+            {% else %}
+              {% assign navItemClasses = navItemClasses | append: ' nav-item-hover' %}
+              {% assign onClick = "window.location='" | append: navPageUrl | append: "';" %}
+            {% endif %}
+            
+	    <div class="{{ navItemClasses }}" onclick="{{ onClick }}">
+              {{ navPage.title }}
+            </div>
+            {% endif %}
+            {% endfor %}
+            <a href="javascript:void(0);" class="nav-item nav-hamburger" onclick="navBarHamToggle()">
+              <div id="nav-bar-name-collapsed">
+                {{ site.title }}&nbsp;
+              </div>
+              <i id="hamburger-menu-icon" class="fa fa-bars"></i>
+            </a>
+	</div>
+      </nav>
+
+      <div class="content">
+	{{ content }}
+      </div>
+
+      <div class="footer">
+        <hr>
+        <div class="join-title">
+          <h2 class="join-title">Keep in touch with {{ site.title }}!</h2>
+          <a class="external-link" target="_blank" href="https://groups.google.com/g/students-systems">Mailing list</a> or 
+        </div>
+        <br>
+        <div class="join-gallery">
+          {% for medium in site.data.social %}
+          {% if medium.active == true %}
+          <a target="_blank" href="{{ medium.link }}" title="{{ medium.name }}">
+            <i class="fa-2x {{ medium.icon }}" style="color: #{{ medium.color}};"></i>
+          </a>
+          {% endif %}
+          {% endfor %}
+        </div>
+        <div class="copyright-div">
+          Copyright &#169; 2022-23 Student@Systems
+        </div>
+      </div>
+      </section>
+    </div>
+    <script src="{{ "/assets/js/scale.fix.js" | relative_url }}"></script>
+    <script src="{{ '/assets/js/nav-bar.js' | relative_url }}"></script>
+    <script src="{{ '/assets/js/time-fmt-local.js' | relative_url }}"></script>
+  </body>
+</html>
